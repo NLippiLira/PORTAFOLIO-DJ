@@ -1,0 +1,24 @@
+{% extends 'sitio/base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container text-center my-5">
+  <h2>Panel privado</h2>
+  <p class="mb-4" style="font-size: 1.2rem; ">Bienvenido, {{ request.user.username }}.</p>
+
+  {% if request.user.is_authenticated %}
+    <div class="d-grid gap-3 col-12 col-md-6 mx-auto">
+      <a href="{% url 'editar_biografia' %}" class="btn btn-primary"  style="font-size: 1.2rem;">Editar biografía</a>
+      <a href="{% url 'listar_proyectos' %}" class="btn btn-success" style="font-size: 1.2rem;">Gestionar proyectos</a>
+      <a href="{% url 'listar_destacados' %}" class="btn btn-warning" style="font-size: 1.2rem;">Gestionar destacados</a>
+
+      <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger my-5">Cerrar sesión</button>
+      </form>
+    </div>
+  {% else %}
+    <a href="{% url 'login' %}" class="btn btn-outline-primary mt-4">Iniciar sesión</a>
+  {% endif %}
+</div>
+{% endblock %}

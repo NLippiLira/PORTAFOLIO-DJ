@@ -1,0 +1,37 @@
+{% extends 'sitio/base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container mt-5">
+  <h2 class="fw-bold mb-4 text-center">Contacto</h2>
+
+  <p class="lead text-center mb-4">
+    Puedes contactarme a través de los siguientes medios:
+  </p>
+
+  <ul class="list-group list-group-flush shadow-sm rounded mx-auto" style="max-width: 600px;">
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <div>
+        <i class="bi bi-envelope me-2 text-primary"></i> <strong>Correo:</strong>
+      </div>
+      <a href="mailto:nlippilira@gmail.com" class="text-decoration-none">nlippilira@gmail.com</a>
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <div>
+        <i class="bi bi-linkedin me-2 text-primary"></i> <strong>LinkedIn:</strong>
+      </div>
+      <a href="https://www.linkedin.com/in/nicolaslippilira/" target="_blank" class="text-decoration-none">
+        linkedin.com/in/nicolaslippilira
+      </a>
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <div>
+        <i class="bi bi-github me-2 text-dark"></i> <strong>GitHub:</strong>
+      </div>
+      <a href="https://github.com/NLippiLira" target="_blank" class="text-decoration-none">
+        github.com/NLippiLira
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock %}

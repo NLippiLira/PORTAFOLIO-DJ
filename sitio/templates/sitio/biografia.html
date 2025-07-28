@@ -1,0 +1,25 @@
+{% extends 'sitio/base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container mt-5">
+  <div class="card shadow-lg border-0 mb-5">
+    <div class="row g-0 align-items-center">
+      
+      {% if biografia.foto %}
+      <div class="col-md-4 text-center p-4">
+        <img src="{{ biografia.foto.url }}" alt="{{ biografia.nombre }}" class="img-fluid rounded-circle shadow" style="max-width: 220px;">
+      </div>
+      {% endif %}
+      
+      <div class="col-md-8 p-4">
+        <h2 class="fw-bold">{{ biografia.nombre }}</h2>
+        <h5 class="text-muted mb-3">{{ biografia.profesion }}</h5>
+        <hr class="text-secondary">
+        <p class="text-muted" style="line-height: 1.6;">{{ biografia.descripcion|linebreaks }}</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+{% endblock %}

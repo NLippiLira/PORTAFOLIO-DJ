@@ -1,0 +1,50 @@
+{% extends 'sitio/base.html' %}
+
+{% block contenido %}
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold">Mis Proyectos</h2>
+    <a href="{% url 'crear_proyecto' %}" class="btn btn-success shadow-sm">
+      <i class="bi bi-plus-circle me-1"></i> Nuevo Proyecto
+    </a>
+  </div>
+
+  {% if proyectos %}
+    <div class="table-responsive">
+      <table class="table table-hover align-middle shadow-sm rounded bg-white">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Título</th>
+            <th scope="col" class="text-end">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in proyectos %}
+          <tr>
+            <td>{{ p.titulo }}</td>
+            <td class="text-end">
+              <a href="{% url 'editar_proyecto' p.id %}" class="btn btn-sm btn-outline-warning me-2">
+                <i class="bi bi-pencil-square"></i> Editar
+              </a>
+              <a href="{% url 'eliminar_proyecto' p.id %}" class="btn btn-sm btn-outline-danger">
+                <i class="bi bi-trash"></i> Eliminar
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="alert alert-info text-center" role="alert">
+      No hay proyectos registrados aún. ¡Comienza creando uno!
+    </div>
+  {% endif %}
+
+  <div class="text-center mt-4">
+    <a href="{% url 'panel' %}" class="btn btn-outline-info rounded-pill px-4">
+      ← Volver al panel
+    </a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'sitio/base.html' %}
+
+{% block contenido %}
+<div class="container mt-5">
+  <div class="card shadow-lg p-4">
+    <h2 class="fw-bold mb-4">{{ accion }} Destacado</h2>
+
+    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+      {% csrf_token %}
+      
+      {% for field in form %}
+        <div class="mb-3">
+          <label for="{{ field.id_for_label }}" class="form-label fw-semibold">{{ field.label }}</label>
+          {{ field }}
+          {% if field.help_text %}
+            <div class="form-text">{{ field.help_text }}</div>
+          {% endif %}
+          {% for error in field.errors %}
+            <div class="text-danger small">{{ error }}</div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+
+      <div class="d-flex justify-content-between mt-4">
+        <a href="{% url 'panel' %}" class="btn btn-outline-secondary rounded-pill px-4">
+          ← Cancelar
+        </a>
+        <button type="submit" class="btn btn-primary rounded-pill px-4">
+          <i class="bi bi-save me-1"></i> Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
