@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import BiografiaForm, ProyectoForm, DestacadoForm
 from django.contrib.auth import login, logout
 
+
+
 def inicio(request):
     proyectos = Proyecto.objects.all()
     destacados = Destacado.objects.order_by('orden')
