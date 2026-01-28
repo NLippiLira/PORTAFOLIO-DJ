@@ -224,3 +224,20 @@ body.dark-mode .btn:hover {
     font-size: 1.5rem;
   }
 }
+/* SECCION CV */
+.cv-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.dark-mode .cv-section {
+  background: linear-gradient(135deg, #1a1a1a, #111);
+}
+
+.cv-section .btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv-section .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
