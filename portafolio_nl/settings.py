@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)))c#e09y_xhhgxb%4-5f7bfs46*552_%$3f6y2h$8vhvpedk6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [ "localhost",
     "127.0.0.1",
@@ -81,21 +81,23 @@ WSGI_APPLICATION = 'portafolio_nl.wsgi.application'
 
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.environ.get("DATABASE_URL")
+    'default': dj_database_url.config(
+        default=os.environ.get("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
     )
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-    }
-}
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.postgresql',
+   #     'NAME': config('DB_NAME'),
+    #    'USER': config('DB_USER'),
+     #   'PASSWORD': config('DB_PASSWORD'),
+      #  'HOST': config('DB_HOST'),
+       # 'PORT': config('DB_PORT'),
+    #}
+#}
 
 
 # Password validation
