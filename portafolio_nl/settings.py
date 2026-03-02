@@ -88,16 +88,13 @@ DATABASES = {
     )
 }
 
-#DATABASES = {
- #   'default': {
-  #      'ENGINE': 'django.db.backends.postgresql',
-   #     'NAME': config('DB_NAME'),
-    #    'USER': config('DB_USER'),
-     #   'PASSWORD': config('DB_PASSWORD'),
-      #  'HOST': config('DB_HOST'),
-       # 'PORT': config('DB_PORT'),
-    #}
-#}
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dti7vslml',
+    'API_KEY': '478212866933135',
+    'API_SECRET': 'VZ5CYW52YoQp9cn7UzZ17Kf3rwA',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Password validation
