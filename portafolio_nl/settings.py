@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sitio.apps.SitioConfig',
+    'cloudinary',
+'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
